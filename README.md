@@ -16,6 +16,28 @@
 * **批量检测** - 支持多域名并发检测，可与RealiTLScanner配合使用
 * **智能报告** - 生成详细的检测分析报告
 
+## 批量检测目标域名（在远端运行）
+使用 [Reality 协议目标网站检测工具](https://github.com/V2RaySSR/RealityChecker) 对之前导出的结果[RealiTLScanner 目标网站扫描工具](https://github.com/XTLS/RealiTLScanner)进行检测
+
+该工具会自动判断目标域名的基本条件以及加分项
+#### centos 把 apt 换为 yum （在远端运行）
+```bash
+apt update
+apt install unzip curl wget -y
+```
+#### 根据自己的系统架构下载相对应的版本 以下为 X86 机型（在远端运行）
+```bash
+wget https://github.com/V2RaySSR/RealityChecker/releases/latest/download/reality-checker-linux-amd64.zip
+unzip reality-checker-linux-amd64.zip
+chmod +x reality-checker
+```
+#### 开始检测（在远端检测）
+```bash
+./reality-checker check apple.com                           # 基础单域名检测
+./reality-checker batch apple.com tesla.com microsoft.com   # 批量检测多个域名（空格分隔）
+./reality-checker csv file.csv                              # 从CSV文件批量检测域名
+```
+
 ## 📊 检测结果说明
 
 ### 检测结果示例
